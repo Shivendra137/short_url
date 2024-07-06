@@ -15,7 +15,7 @@ const URL = require("./models/url");
 
 const app = express();
 
-const PORT =process.env.PORT || 8001;
+const PORT = 8001;
 
 mongoose.connect(process.env.MONGODB).then(() =>
   console.log(" mongodb connected")
