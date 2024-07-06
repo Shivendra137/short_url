@@ -1,3 +1,5 @@
+require('dotenv').config(); 
+const mongoose = require('mongoose')
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser"); // install the package npm i cookie-parser
@@ -10,11 +12,12 @@ const signupRouter = require("./routes/user");
 
 const URL = require("./models/url");
 
+
 const app = express();
 
-const PORT = 8001;
+const PORT =process.env.PORT || 8001;
 
-connectToMongoDb("mongodb://127.0.0.1:27017/short-url").then(() =>
+mongoose.connect(process.env.MONGODB).then(() =>
   console.log(" mongodb connected")
 );
 
